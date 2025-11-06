@@ -22,7 +22,7 @@ export function SearchBar() {
       placeholder="Search by title, channel, or description..."
       value={value}
       onChange={onChange}
-      className="w-full rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
+      className="w-full rounded-md border bg-card px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
     />
   );
 }

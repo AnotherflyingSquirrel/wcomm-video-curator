@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+import 'dotenv/config';
 export async function connectDB() {
   let url = process.env.MONGO_URL || process.env.MONGODB_URI || '';
   if (!url) {

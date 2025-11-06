@@ -9,12 +9,16 @@ export function TopicFilter() {
   }
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-3">Topics</h2>
+      <h2 className="text-lg font-semibold mb-4">Topics</h2>
       <div className="flex flex-wrap gap-2">
         {topics.map((t) => (
           <button
             key={t.slug}
-            className={`px-3 py-1 rounded-full border text-sm ${selectedTopics.includes(t.slug) ? 'bg-blue-600 text-white border-blue-600' : 'border-gray-300 dark:border-gray-700'}`}
+            className={`px-3 py-1.5 rounded-full border text-sm font-medium transition-colors ${
+              selectedTopics.includes(t.slug)
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground'
+            }`}
             onClick={() => onToggle(t.slug)}
           >
             {t.name}

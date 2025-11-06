@@ -9,14 +9,14 @@ export function VideoGrid() {
 
   return (
     <div>
-      {error && <div className="p-3 bg-red-100 text-red-800 rounded">{error}</div>}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {error && <div className="p-4 bg-destructive text-destructive-foreground rounded-md mb-4">{error}</div>}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {videos.map((v) => (
           <VideoCard key={v.id} video={v} onClick={() => setSelectedId(v.id)} />
         ))}
       </div>
-      <div className="mt-6 flex justify-center">
-        <button disabled={loading} onClick={() => loadMore()} className="px-4 py-2 rounded bg-blue-600 text-white disabled:opacity-50">
+      <div className="mt-8 flex justify-center">
+        <button disabled={loading} onClick={() => loadMore()} className="px-6 py-2 rounded-md bg-primary text-primary-foreground font-semibold disabled:opacity-50 transition-colors hover:bg-primary/90">
           {loading ? 'Loading...' : 'Load more'}
         </button>
       </div>

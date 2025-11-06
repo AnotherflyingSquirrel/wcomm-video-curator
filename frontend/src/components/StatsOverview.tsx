@@ -5,12 +5,12 @@ export function StatsOverview() {
   const { total, lastUpdated, videos } = useStore();
   const uniqueTopics = new Set(videos.flatMap((v: any) => v.topics.map((t: any) => t.slug))).size;
   return (
-    <div className="p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-      <h3 className="font-semibold mb-2">Overview</h3>
-      <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-        <div>Total videos: {new Intl.NumberFormat().format(total)}</div>
-        <div>Topics in results: {uniqueTopics}</div>
-        <div>Last updated: {lastUpdated ? new Date(lastUpdated).toLocaleString() : '—'}</div>
+    <div className="p-4 rounded-lg bg-card text-card-foreground border">
+      <h3 className="font-semibold mb-3 text-lg">Overview</h3>
+      <div className="text-sm text-muted-foreground space-y-2">
+        <div className="flex justify-between"><span>Total videos:</span> <span className="font-medium">{new Intl.NumberFormat().format(total)}</span></div>
+        <div className="flex justify-between"><span>Topics in results:</span> <span className="font-medium">{uniqueTopics}</span></div>
+        <div className="flex justify-between"><span>Last updated:</span> <span className="font-medium">{lastUpdated ? new Date(lastUpdated).toLocaleString() : '—'}</span></div>
       </div>
     </div>
   );

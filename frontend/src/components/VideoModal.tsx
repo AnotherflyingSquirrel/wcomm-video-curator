@@ -26,8 +26,8 @@ export function VideoModal({ videoId, onClose }: Props) {
   }, [videoId]);
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50" onClick={onClose}>
-      <div className="bg-white dark:bg-gray-900 rounded-lg max-w-4xl w-full overflow-hidden" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4 z-50" onClick={onClose}>
+      <div className="bg-card text-card-foreground rounded-lg max-w-4xl w-full overflow-hidden border shadow-xl" onClick={(e) => e.stopPropagation()}>
         <div className="aspect-video bg-black">
           {video && (
             <iframe
@@ -41,18 +41,18 @@ export function VideoModal({ videoId, onClose }: Props) {
             />
           )}
         </div>
-        <div className="p-4">
+        <div className="p-6">
           {loading && <div>Loading...</div>}
-          {error && <div className="text-red-600">{error}</div>}
+          {error && <div className="text-destructive">{error}</div>}
           {video && (
             <div>
-              <h3 className="text-xl font-semibold">{video.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">{video.channelName}</p>
-              <p className="mt-3 whitespace-pre-wrap text-sm">{video.description}</p>
+              <h3 className="text-2xl font-bold">{video.title}</h3>
+              <a href={`https://www.youtube.com/channel/${video.channelId}`} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{video.channelName}</a>
+              <p className="mt-4 whitespace-pre-wrap text-sm max-h-60 overflow-y-auto">{video.description}</p>
             </div>
           )}
-          <div className="mt-4 flex justify-end">
-            <button onClick={onClose} className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700">Close</button>
+          <div className="mt-6 flex justify-end">
+            <button onClick={onClose} className="px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">Close</button>
           </div>
         </div>
       </div>
